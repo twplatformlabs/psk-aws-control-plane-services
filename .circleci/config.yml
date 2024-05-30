@@ -33,11 +33,11 @@ commands:
         description: cluster and tf workspace name
         type: string
     steps:
-      - op/env:
-          env-file: op.<< parameters.cluster >>.env
-      - op/tpl:
-          tpl-path: environments
-          tpl-file: << parameters.cluster >>.auto.tfvars.json
+      # - op/env:
+      #     env-file: op.<< parameters.cluster >>.env
+      # - op/tpl:
+      #     tpl-path: environments
+      #     tpl-file: << parameters.cluster >>.auto.tfvars.json
       - kube/op-config:
           op-value: empc-lab/psk-aws-<< parameters.cluster>>/kubeconfig-base64
 
