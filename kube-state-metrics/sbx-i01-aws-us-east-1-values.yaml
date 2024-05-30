@@ -1,0 +1,169 @@
+
+prometheusScrape: true
+image:
+  registry: registry.k8s.io
+  repository: kube-state-metrics/kube-state-metrics
+  pullPolicy: Always
+
+autosharding:
+  enabled: false
+
+replicas: 1
+
+service:
+  port: 8080
+  type: ClusterIP
+
+customLabels:
+    kubernetes.io/cluster-service: "true"
+    kubernetes.io/name: "kube-state-metrics"
+
+rbac:
+  create: true
+  useClusterRole: true
+
+  containerSecurityContext:
+    readOnlyRootFilesystem: true
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+      - ALL
+
+serviceAccount:
+  create: true
+
+prometheus:
+  monitor:
+    enabled: false
+    annotations: {}
+    additionalLabels: {}
+    namespace: ""
+    namespaceSelector: []
+    jobLabel: ""
+    targetLabels: []
+    podTargetLabels: []
+    interval: ""
+    ## SampleLimit defines per-scrape limit on number of scraped samples that will be accepted.
+    ##
+    sampleLimit: 0
+
+    ## TargetLimit defines a limit on the number of scraped targets that will be accepted.
+    ##
+    targetLimit: 0
+
+    ## Per-scrape limit on number of labels that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
+    ##
+    labelLimit: 0
+
+    ## Per-scrape limit on length of labels name that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
+    ##
+    labelNameLengthLimit: 0
+
+    ## Per-scrape limit on length of labels value that will be accepted for a sample. Only valid in Prometheus versions 2.27.0 and newer.
+    ##
+    labelValueLengthLimit: 0
+    scrapeTimeout: ""
+    proxyUrl: ""
+    ## Whether to enable HTTP2 for servicemonitor
+    # enableHttp2: false
+    selectorOverride: {}
+    honorLabels: false
+    metricRelabelings: []
+    relabelings: []
+    scheme: ""
+    ## File to read bearer token for scraping targets
+    bearerTokenFile: ""
+    ## Secret to mount to read bearer token for scraping targets. The secret needs
+    ## to be in the same namespace as the service monitor and accessible by the
+    ## Prometheus Operator
+    bearerTokenSecret: {}
+      # name: secret-name
+      # key:  key-name
+    tlsConfig: {}
+
+securityContext:
+  enabled: true
+  runAsGroup: 65534
+  runAsUser: 65534
+  fsGroup: 65534
+  runAsNonRoot: true
+  seccompProfile:
+    type: RuntimeDefault
+
+## Specify security settings for a Container
+## Allows overrides and additional options compared to (Pod) securityContext
+## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
+containerSecurityContext:
+  readOnlyRootFilesystem: true
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+
+nodeSelector:
+  nodegroup: management-arm-rkt-mng
+
+tolerations:
+  - key: "dedicated"
+    operator: "Equal"
+    value: "management"
+    effect: "NoSchedule"
+
+# By default, all available resources are enabled, comment out to disable.
+collectors:
+  - certificatesigningrequests
+  - configmaps
+  - cronjobs
+  - daemonsets
+  - deployments
+  - endpoints
+  - horizontalpodautoscalers
+  - ingresses
+  - jobs
+  - leases
+  - limitranges
+  - mutatingwebhookconfigurations
+  - namespaces
+  - networkpolicies
+  - nodes
+  - persistentvolumeclaims
+  - persistentvolumes
+  - poddisruptionbudgets
+  - pods
+  - replicasets
+  - replicationcontrollers
+  - resourcequotas
+  - secrets
+  - services
+  - statefulsets
+  - storageclasses
+  - validatingwebhookconfigurations
+  - volumeattachments
+
+resources:
+  limits:
+   cpu: 100m
+   memory: 64Mi
+  requests:
+   cpu: 10m
+   memory: 32Mi
+
+livenessProbe:
+  failureThreshold: 3
+  httpGet:
+    httpHeaders: []
+    scheme: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
+
+readinessProbe:
+  failureThreshold: 3
+  httpGet:
+    httpHeaders: []
+    scheme: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  successThreshold: 1
+  timeoutSeconds: 5
