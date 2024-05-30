@@ -33,8 +33,8 @@ commands:
         description: cluster and tf workspace name
         type: string
     steps:
-      # - op/env:
-      #     env-file: op.<< parameters.cluster >>.env
+      - op/env:
+          env-file: op.<< parameters.cluster >>.env
       # - op/tpl:
       #     tpl-path: environments
       #     tpl-file: << parameters.cluster >>.auto.tfvars.json
