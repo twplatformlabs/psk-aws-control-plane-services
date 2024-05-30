@@ -45,7 +45,7 @@ commands:
     steps:
       - run:
           name: run control plane services integration tests
-          command: bash scripts/services_integration_tests.sh
+          command: bash scripts/services_integration_test.sh
 
 jobs:
 
