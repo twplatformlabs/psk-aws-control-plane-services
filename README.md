@@ -1,12 +1,16 @@
 # psk-aws-platform-eks-core-services
 
+**min for lab replacement**
+
 metrics server
 kube state metrics
 kubernetes-event-exporter
 
-external-secrets for cluster admin
-
 # TODO
+
+- px
+-flagger
+- external-secrets for cluster admin
 
 - will need post-observability assessment of these services  
 

@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   terraform: twdps/terraform@3.0.1
-  kube: twdps/kube-ops@1.1.0
+  kube: twdps/kube-ops@1.1.1
   op: twdps/onepassword@3.0.0
   do: twdps/pipeline-events@4.1.0
 
@@ -35,9 +35,6 @@ commands:
     steps:
       - op/env:
           env-file: op.<< parameters.cluster >>.env
-      # - op/tpl:
-      #     tpl-path: environments
-      #     tpl-file: << parameters.cluster >>.auto.tfvars.json
       - kube/op-config:
           op-value: empc-lab/psk-aws-<< parameters.cluster>>/kubeconfig-base64
 
