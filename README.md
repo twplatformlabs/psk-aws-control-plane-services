@@ -1,26 +1,36 @@
-# psk-aws-platform-eks-core-services
+<div align="center">
+	<p>
+	<img alt="Thoughtworks Logo" src="https://raw.githubusercontent.com/ThoughtWorks-DPS/static/master/thoughtworks_flamingo_wave.png?sanitize=true" width=200 /><br />
+	<img alt="DPS Title" src="https://raw.githubusercontent.com/ThoughtWorks-DPS/static/master/EMPCPlatformStarterKitsImage.png?sanitize=true" width=350/><br />
+	<h2>psk-aws-control-plane-services</h2>
+	<a href="https://opensource.org/licenses/MIT"><img src="https://img.shields.io/github/license/ThoughtWorks-DPS/psk-aws-control-plane-services"></a> <a href="https://aws.amazon.com"><img src="https://img.shields.io/badge/-deployed-blank.svg?style=social&logo=amazon"></a>
+	</p>
+</div>
 
-**min for lab replacement**
 
-metrics server
-kube state metrics
-kubernetes-event-exporter
+## current services
 
-# TODO
+* metrics-server
+* kube-state-metrics
+* kubernetes-event-exporter
 
-- px
--flagger
-- external-secrets for cluster admin
+### Maintainers
 
-- will need post-observability assessment of these services  
+**TODO**  
 
-opentelemetry-collector: deployed with honeycomb receiver configuration but did not work nor have errors.  
-- debug
-- add jeager option when get to that deployment
+Debug opentelemetry-collector deplpoyment. Current configuration deploys with honeycomb receiver however data is not being transmitted nor are there errors in the logs.  
 
-- kspan = events as traces, whwen opemtelemetry exporter is working
+Service to add:  
+- external-secrets operator (for cluster admin usage)
+- observability solution (TBD)
+- jaeger option for tracing data
+- kspan to include kubernetes events in tracing data
+- pixie
+- flagger
+- kubecost / cast.ai
 
-- prometheus/grafana solution
+Observability solution implementation for pipeline managed services.  
 
-- kubecost  # not needed for epe
-- cast  # not needed for  epe
+**service upgrades**  
+
+Update the deployment version in the environments json and run the release pipeline.  
