@@ -112,6 +112,9 @@ workflows:
             Automatically triggers nightly run of control plane services integration tests
           hours-of-day: "[1]"
           days-of-week: "[\"SUN\"]"
+          before-schedule:
+            - op/env:
+                env-file: op.prod-i01-aws-us-east-2.env
           filters: *on-tag-main
 
   run nightly integration tests:
@@ -121,7 +124,7 @@ workflows:
       - integration-tests:
           name: nightly sbx-i01-aws-us-east-1 integration tests
           context: *context
-          cluster: sbx-i01-aws-us-east-1 
+          cluster: sbx-i01-aws-us-east-1
       - integration-tests:
           name: nightly prod-i01-aws-us-east-2 integration tests
           context: *context
