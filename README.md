@@ -7,8 +7,7 @@
 	</p>
 </div>
 
-
-## current services
+### current services
 
 * metrics-server
 * kube-state-metrics
@@ -18,18 +17,18 @@
 
 **TODO**  
 
-Debug opentelemetry-collector deplpoyment. Current configuration deploys with honeycomb receiver however data is not being transmitted nor are there errors in the logs.  
+- Debug opentelemetry-collector deplpoyment. Current configuration deploys with honeycomb receiver however data is not being transmitted nor are there errors in the logs.  
 
-Service to add:  
+Services to add:  
 - external-secrets operator (for cluster admin usage)
 - observability solution (TBD)
 - jaeger option for tracing data
-- kspan to include kubernetes events in tracing data
+- kspan, to include kubernetes events in tracing data
 - pixie
 - flagger
-- kubecost / cast.ai
+- kubecost
 
-Observability solution implementation for pipeline managed services.  
+- Observability solution implementation for pipeline managed services.  
 
 **service upgrades**  
 
