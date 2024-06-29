@@ -22,7 +22,8 @@
 Services to add:  
 - external-secrets operator (for cluster admin usage)
 - observability solution (TBD)
-- jaeger option for tracing data
+- k8s-sig/descheduler
+- debug local (jaeger) option for storing tracing data
 - kspan, to include kubernetes events in tracing data
 - pixie
 - flagger
