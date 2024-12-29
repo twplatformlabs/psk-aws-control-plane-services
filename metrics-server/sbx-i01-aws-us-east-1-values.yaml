@@ -25,14 +25,15 @@ securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
   runAsNonRoot: true
-  runAsUser: 1000
+  runAsUser: 10001
+  runAsGroup: 10001
   seccompProfile:
     type: RuntimeDefault
-  capabilities:
-    drop:
-      - ALL
-    add:
-      - CAP_NET_BIND_SERVICE
+  # capabilities:
+  #   drop:
+  #     - ALL
+  #   add:
+  #     - CAP_NET_BIND_SERVICE
 
 priorityClassName: system-cluster-critical
 
@@ -44,7 +45,7 @@ updateStrategy:
   type: RollingUpdate
   rollingUpdate:
     maxSurge: 1
-    
+
 podDisruptionBudget:
   enabled: false
 

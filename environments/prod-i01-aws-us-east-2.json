@@ -1,6 +1,5 @@
 {
   "metrics_server_chart_version": "3.12.1",
   "kube_state_metrics_chart_version": "5.19.0",
-  "opentelemetry_collector_chart_version": "0.92.0",
   "event_exporter_chart_version": "3.2.0"
 }
