@@ -38,6 +38,7 @@ commands:
           env-file: op.<< parameters.cluster >>.env
       - kube/op-config:
           op-value: empc-lab/psk-aws-<< parameters.cluster>>/kubeconfig-base64
+      - do/bash-functions
 
   run-integration-tests:
     steps:
