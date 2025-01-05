@@ -10,7 +10,7 @@ bats test/services-state-test.bats
 # run horizontalpodautoscaler test to confirm metrics-server working health
 kubectl apply -f test/hpa-test-deployment.yaml
 sleep 30
-kubectl apply -f test/hap-test-load-generator.yaml
+kubectl apply -f test/hpa-test-load-generator.yaml
 sleep 120
 
 replicas=$(kubectl get hpa php-apache | awk 'NR > 1 { print $7 }')
@@ -23,7 +23,7 @@ else
   exit 1
 fi
 kubectl delete -f test/hpa-test-deployment.yaml
-kubectl delete -f test/hap-test-load-generator.yaml
+kubectl delete -f test/hpa-test-load-generator.yaml
 
 # run test metrics output test to confirm kube-state-metrics and event-exporter health
 bats test/services_functional_test.bats
