@@ -26,4 +26,4 @@ kubectl delete -f test/hpa-test-deployment.yaml
 kubectl delete -f test/hpa-test-load-generator.yaml
 
 # run test metrics output test to confirm kube-state-metrics and event-exporter health
-bats test/services_functional_test.bats
+bats test/services-functional-test.bats
