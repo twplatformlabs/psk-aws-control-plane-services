@@ -1,7 +1,6 @@
 image:
   pullPolicy: Always
 
-
 securityContext:
   allowPrivilegeEscalation: false
   readOnlyRootFilesystem: true
@@ -19,7 +18,6 @@ updateStrategy:
 podDisruptionBudget:
   enabled: true
   maxUnavailable: 1
-
 
 service:
   labels:

@@ -1,5 +1,4 @@
 nameOverride: event-exporter
-#fullnameOverride:
 
 image:
   pullPolicy: Always
