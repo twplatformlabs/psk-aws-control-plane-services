@@ -28,5 +28,5 @@
 
 @test "event-exporter logs show service has started successfully" {
   run bash -c "kubectl logs deployment/event-exporter -n kube-system -c event-exporter"
-  [[ "${output}" =~ "Scaled up replica set event-exporter" ]]
+  [[ "${output}" =~ "Starting with config" ]]
 }
