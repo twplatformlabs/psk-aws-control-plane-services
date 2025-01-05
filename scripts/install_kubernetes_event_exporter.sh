@@ -4,7 +4,6 @@ source bash-functions.sh
 
 cluster_name=$1
 CHART_VERSION=$(jq -er .kubernetes_event_exporter_chart_version environments/$cluster_name.json)
-
 echo "kubernetes-event-exporter chart version $CHART_VERSION"
 
 # perform trivy scan of chart with install configuration
