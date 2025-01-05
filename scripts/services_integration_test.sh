@@ -13,6 +13,8 @@ sleep 30
 kubectl apply -f test/hpa-test-load-generator.yaml
 sleep 120
 
+kubectl get hpa php-apache
+
 replicas=$(kubectl get hpa php-apache | awk 'NR > 1 { print $7 }')
 echo "hpa reports $replicas replicas"
 
