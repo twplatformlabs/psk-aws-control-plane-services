@@ -1,4 +1,4 @@
-#nameOverride: event-exporter
+nameOverride: event-exporter
 
 image:
   pullPolicy: Always
@@ -59,13 +59,7 @@ containerSecurityContext:
   seccompProfile:
     type: "RuntimeDefault"
 
-resources:
-  requests:
-    cpu: 2
-    memory: 512Mi
-  limits:
-    cpu: 3
-    memory: 1024Mi
+resourcesPreset: "nano"
 
 nodeSelector:
   nodegroup: management-arm-rkt-mng
