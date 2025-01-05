@@ -67,7 +67,7 @@ jobs:
           command: bash scripts/install_kube_state_metrics.sh << parameters.cluster >>
       - run:
           name: install kubernetes-event-exporter
-          command: bash scripts/install_event_exporter.sh << parameters.cluster >>
+          command: bash scripts/install_kubernetes_event_exporter.sh << parameters.cluster >>
       - run-integration-tests
       - do/slack-bot:
           channel: lab-events
