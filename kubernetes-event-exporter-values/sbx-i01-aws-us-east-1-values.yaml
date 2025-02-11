@@ -28,6 +28,7 @@ rbac:
       - namespaces
       - networkpolicies
       - nodes
+      - nodeclaims
       - persistentvolumeclaims
       - persistentvolumes
       - poddisruptionbudgets
