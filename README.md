@@ -13,26 +13,12 @@
 * kube-state-metrics
 * kubernetes-event-exporter
 
-### Maintainers
+__Note: Normally there would be the complete set of observability collectors among the services. Starter Kits currently not providing example solution for this requirement.__  
 
-**TODO**  
+### Maintainers
 
 - Debug opentelemetry-collector deplpoyment. Current configuration deploys with honeycomb receiver however data is not being transmitted nor are there errors in the logs.  
 
-Services to add:  
-- observability solution services (TBD)
-- observability solution applied (for services deployed by this pipeline)
-- debug local (jaeger) option for storing tracing data
-- kspan, to include kubernetes events in tracing data
-- pixie
-- flagger
-- kubecost
-
-_explore_
-
-_at actual compute scale_
-- [k8s-sig/descheduler](https://github.com/kubernetes-sigs/descheduler)
-
 **service upgrades**  
 
-Update the deployment version in the environments json and run the release pipeline.  
+Chart versions as feature flags in environments folder.  
