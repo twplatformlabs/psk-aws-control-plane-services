@@ -7,6 +7,7 @@ CHART_VERSION=$(jq -er .metrics_server_chart_version environments/$cluster_name.
 echo "metrics-server chart version $CHART_VERSION"
 
 helm repo add metrics-server https://kubernetes-sigs.github.io/metrics-server/
+helm repo update
 
 # perform trivy scan of chart with install configuration
 trivyScan "metrics-server/metrics-server" "metrics-server"  "$CHART_VERSION" "metrics-server-values/$cluster_name-values.yaml"
