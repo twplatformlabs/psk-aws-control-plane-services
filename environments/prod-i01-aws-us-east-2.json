@@ -1,5 +1,5 @@
 {
   "metrics_server_chart_version": "3.12.2",
-  "kube_state_metrics_chart_version": "5.30.0",
-  "kubernetes_event_exporter_chart_version": "3.3.4"
+  "kube_state_metrics_chart_version": "5.31.1",
+  "kubernetes_event_exporter_chart_version": "3.4.5"
 }
