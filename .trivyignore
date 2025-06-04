@@ -1,0 +1,11 @@
+# Ignore selected warnings from scanning the official AWS terraform modules
+#
+# external registry is allowed
+AVD-KSV-0032
+AVD-KSV-0033
+AVD-KSV-0034
+AVD-KSV-0035
+AVD-KSV-0125
+
+# Deployed to kube-system namespace
+AVD-KSV-0118
